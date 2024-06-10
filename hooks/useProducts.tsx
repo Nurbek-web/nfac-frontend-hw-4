@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Product } from "@/types/product";
-import { fetchProducts } from "@/api/products";
+import { fetchProducts } from "@/lib/productsService";
 
 const useProducts = () => {
   return useQuery<Product[]>({

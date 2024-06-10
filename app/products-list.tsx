@@ -11,7 +11,10 @@ export default function ProductsList() {
   }
   return (
     <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 px-4 md:px-6 py-8">
-      {isSuccess && data.map((product) => <ProductCard product={product} />)}
+      {isSuccess &&
+        data.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
     </section>
   );
 }
