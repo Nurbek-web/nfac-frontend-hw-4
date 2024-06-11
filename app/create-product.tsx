@@ -4,6 +4,7 @@ import React, { useState, ChangeEvent } from "react";
 import ImageShow from "./image-show";
 import { AxiosProgressEvent } from "axios";
 import { axiosInstance } from "@/lib/axiosInstance";
+import { useToast } from "@/components/ui/use-toast";
 
 const AddProduct = ({ setModalOpen, newProducts, setNewProducts }: any) => {
   const [files, setFiles] = useState<string[] | null>(null);
@@ -15,6 +16,8 @@ const AddProduct = ({ setModalOpen, newProducts, setNewProducts }: any) => {
   const [description, setDescription] = useState<string>("");
   const [loadedBytes, setLoadedBytes] = useState<number>(0);
   const [totalBytes, setTotalBytes] = useState<number>(0);
+
+  const { toast } = useToast();
 
   const handleTitleChange = (event: any) => {
     setTitle(event.target.value);
@@ -90,6 +93,10 @@ const AddProduct = ({ setModalOpen, newProducts, setNewProducts }: any) => {
     setTotalBytes(0);
     setFiles(null);
     setModalOpen(false);
+    toast({
+      title: "YEEEEEEAAAAAAAAH",
+      description: "YOUR PRODUCT SAVED )))))))))))",
+    });
   };
 
   return (
